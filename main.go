@@ -12,6 +12,7 @@ var functions = map[int]struct {
 }{
 	1: {"HelloWorld", core.HelloWorld},
 	2: {"Variable", core.Variable},
+	3: {"Operators", core.Operators},
 }
 
 func main() {

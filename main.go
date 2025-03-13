@@ -16,6 +16,7 @@ var functions = map[int]struct {
 	4: {"If Else", core.IfElse},
 	5: {"Switch Case", core.SwitchCase},
 	6: {"Loop", core.ForLoop},
+	7: {"Arrays", core.ArrayExample},
 }
 
 func main() {

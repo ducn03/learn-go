@@ -4,6 +4,8 @@ import "fmt"
 
 func Helloworld() {
 	fmt.Println("Hello World!")
-	fmt.Printf("Hello World!")
-	fmt.Print("Hello World! \n")
+
+	fmt.Println("Println")
+	fmt.Printf("Printf")
+	fmt.Print("Print \n")
 }

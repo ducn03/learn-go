@@ -5,31 +5,39 @@ import (
 	"learn-go/core"
 )
 
-func main() {
-	var choice int
+// Danh sách chức năng (số -> function & tên hiển thị)
+var functions = map[int]struct {
+	name string
+	fn   func()
+}{
+	1: {"HelloWorld", core.HelloWorld},
+	2: {"Variable", core.Variable},
+}
 
+func main() {
 	for {
-		// Hiển thị menu lựa chọn
-		fmt.Println("\nChọn một chức năng:")
-		fmt.Println("1. Chạy HelloWorld")
-		fmt.Println("2. Chạy Variable")
-		fmt.Println("3. Thoát chương trình")
+		// Hiển thị menu tự động với tên function
+		fmt.Println("\nChọn lấy 1 cái:")
+		for key, value := range functions {
+			fmt.Printf("%d. %s\n", key, value.name)
+		}
+		fmt.Println("99. Thoát chương trình")
 		fmt.Print("Nhập lựa chọn: ")
 
+		var choice int
 		fmt.Scanln(&choice)
 
 		fmt.Println("")
 		// Xử lý lựa chọn
-		switch choice {
-		case 1:
-			core.Helloworld()
-		case 2:
-			core.Variable()
-		case 3:
+		if choice == 99 {
 			fmt.Println("Thoát chương trình...")
-			return // Dừng chương trình
-		default:
-			fmt.Println("Lựa chọn không hợp lệ! Hãy nhập 1, 2 hoặc 3, ...")
+			return
+		}
+
+		if function, exists := functions[choice]; exists {
+			function.fn() // Gọi function tương ứng
+		} else {
+			fmt.Println("Lựa chọn không hợp lệ! Hãy nhập số từ menu.")
 		}
 	}
 }
